@@ -15,6 +15,7 @@ class GetHandler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin','*')
         self.end_headers()
         if(self.path=='/turnOffBluetooth'):
+            #sudo apt install playerctl
             os.system("playerctl pause")
             os.system("{ echo 'XXX'; } | sudo systemctl restart bluetooth.service")
 
