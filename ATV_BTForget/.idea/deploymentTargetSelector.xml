@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-05T22:47:47.560107818Z">
+        <DropdownSelection timestamp="2025-05-06T14:56:06.268479272Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=/home/alby/.android/avd/Television_720p.avd" />
