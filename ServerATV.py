@@ -17,7 +17,7 @@ class GetHandler(BaseHTTPRequestHandler):
         if(self.path=='/turnOffBluetooth'):
             #sudo apt install playerctl
             os.system("playerctl pause")
-            os.system("{ echo 'xxx'; } | sudo -S systemctl restart bluetooth.service")
+            os.system("{ echo 'XXX'; } | sudo -S systemctl restart bluetooth.service") # replace XXX with password
 
         # the response
         message = {
