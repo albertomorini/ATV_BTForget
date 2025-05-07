@@ -10,3 +10,8 @@ So when I go on the sofa to watch a movie from my AndroidTV, forgetting to disco
 **Solution**: an android app that send an HTTP request to my PC which disconnect the device (and pause the music) and then restart the device bluetooth (ATV) in order to automatically connect.
 
 ![img](./docs/setup.jpg)
+
+
+
+> server is started on a startup shell script via crontab -e (@reboot option)
+> like `python3 dev/ATV_BTForget/ServerATV.py &`
