@@ -19,6 +19,18 @@ class GetHandler(BaseHTTPRequestHandler):
             os.system("playerctl pause")
             os.system("{ echo 'XXX'; } | sudo -S systemctl restart bluetooth.service") # replace XXX with password
 
+
+        ## for extra
+        if(self.path=='/pause'):
+            os.system("playerctl pause")
+        elif(self.path=='/play'):
+            os.system("playerctl play")
+        elif(self.path=='/next'):
+            os.system("playerctl next")
+        elif(self.path=='/shuffle'):
+            os.system("playerctl next")
+
+
         # the response
         message = {
             "success": True
