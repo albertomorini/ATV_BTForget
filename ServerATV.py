@@ -7,6 +7,10 @@ import os
 ##################################################################################################
 indexMessage = 0 ## to simulate a real time scenario, we send just a single message every request
 
+password=''
+with open("./psw.txt","r") as f:
+    password = f.read()
+
 ## class will handle the requests
 class GetHandler(BaseHTTPRequestHandler):
     def do_GET(self): ##GET REQUESTS
@@ -17,7 +21,7 @@ class GetHandler(BaseHTTPRequestHandler):
         if(self.path=='/turnOffBluetooth'):
             #sudo apt install playerctl
             os.system("playerctl pause")
-            os.system("{ echo 'XXX'; } | sudo -S systemctl restart bluetooth.service") # replace XXX with password
+            os.system("{ echo '"+password+"'; } | sudo -S systemctl restart bluetooth.service") # replace XXX with password
 
 
         ## for extra
