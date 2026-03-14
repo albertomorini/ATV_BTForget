@@ -8,7 +8,7 @@ import os
 indexMessage = 0 ## to simulate a real time scenario, we send just a single message every request
 
 password=''
-with open("./psw.txt","r") as f:
+with open("/home/alby/projects/ATV_BTForget/psw.txt","r") as f:
     password = f.read()
 
 ## class will handle the requests
