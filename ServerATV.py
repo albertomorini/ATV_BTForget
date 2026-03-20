@@ -1,9 +1,8 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import subprocess
 import sys
 PORT = 9988
-import os
-
 ##################################################################################################
 indexMessage = 0 ## to simulate a real time scenario, we send just a single message every request
 
@@ -20,20 +19,23 @@ class GetHandler(BaseHTTPRequestHandler):
         self.end_headers()
         if(self.path=='/turnOffBluetooth'):
             #sudo apt install playerctl
-            os.system("playerctl pause")
-            os.system("{ echo '"+password+"'; } | sudo -S systemctl restart bluetooth.service") # replace XXX with password
+            subprocess.run(["playerctl", "pause"])
+            subprocess.run(
+                ["sudo", "-S", "systemctl", "restart", "bluetooth.service"],
+                input=password + "\n",
+                text=True
+            )
 
 
         ## for extra
         if(self.path=='/pause'):
-            os.system("playerctl pause")
+            subprocess.run(["playerctl", "pause"])
         elif(self.path=='/play'):
-            os.system("playerctl play")
+            subprocess.run(["playerctl", "play"])
         elif(self.path=='/next'):
-            os.system("playerctl next")
+            subprocess.run(["playerctl", "next"])
         elif(self.path=='/shuffle'):
-            os.system("playerctl next")
-
+            subprocess.run(["playerctl", "shuffle"])
 
         # the response
         message = {
